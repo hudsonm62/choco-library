@@ -30,7 +30,7 @@ jobs:
         with:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
 
-      - name: 🧪 Get ${{ env.au_MODULE_NAME }}
+      - name: 🧪 Get Chocolatey-AU Module
         run: |
           Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
 
@@ -38,7 +38,7 @@ jobs:
       - name: 🧪 Run Test_All.ps1
         run: |
           ./test_all.ps1 "random $Env:test_groups"
-          Write-Output "GITHUB_STEP_SUMMARY=./Update-Force-Test.md" >> $Env:GITHUB_OUTPUT }
+          Write-Output "GITHUB_STEP_SUMMARY=./Update-Force-Test.md" >> $Env:GITHUB_OUTPUT
 
       - name: ⬆ Upload AU Test Results
         uses: actions/upload-artifact@v4

@@ -62,7 +62,7 @@ jobs:
         run: |
           $ErrorActionPreference = 'Continue'
           ./update_all.ps1 -SourceUri "${{ vars.PKG_URI }}" -PackNPush
-          Write-Output "GITHUB_STEP_SUMMARY=./Update-AUPackages.md" >> $Env:GITHUB_OUTPUT }
+          Write-Output "GITHUB_STEP_SUMMARY=./Update-AUPackages.md" >> $Env:GITHUB_OUTPUT
 
       - name: ☄ Commit Updated
         uses: stefanzweifel/git-auto-commit-action@v5
