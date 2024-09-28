@@ -45,7 +45,7 @@ jobs:
       - name: ⬆ Upload AU Test Results
         uses: actions/upload-artifact@v4
         with:
-          name: AU-tests-result-${{ steps.short-sha.outputs.sha }}
+          name: AU-tests-result-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: Update-Force-Test.md
           compression-level: 9
           if-no-files-found: error

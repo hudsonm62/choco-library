@@ -76,7 +76,7 @@ jobs:
       - name: ⬆ Upload Update Info
         uses: actions/upload-artifact@v4
         with:
-          name: AU-update-result-${{ steps.short-sha.outputs.sha }}
+          name: AU-update-result-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: update_info.xml
           compression-level: 9
           if-no-files-found: ignore # may not exist
@@ -84,7 +84,7 @@ jobs:
       - name: ⬆ Upload Updates Status
         uses: actions/upload-artifact@v4
         with:
-          name: AU-update-result-page-${{ steps.short-sha.outputs.sha }}
+          name: AU-update-result-page-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: Update-AUPackages.md
           compression-level: 9
           if-no-files-found: ignore # may not exist
@@ -92,7 +92,7 @@ jobs:
       - name: ⬆ Upload .nupkg's
         uses: actions/upload-artifact@v4
         with:
-          name: nupkg-artifacts-${{ steps.short-sha.outputs.sha }}
+          name: nupkg-artifacts-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: packages/**/*.nupkg
           compression-level: 0
           if-no-files-found: ignore # may not exist
