@@ -25,14 +25,16 @@ jobs:
         uses: hudsonm62/short-sha@v1
         id: short-sha
 
-      - name: 🏗️ Install / Cache Choco-AU Module
+      - name: 🏗️ Install / Cache Choco AU
         uses: potatoqualitee/psmodulecache@v6.2
         with:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
+          shell: powershell, pwsh
 
-      - name: 🧪 Get Chocolatey-AU Module
+      - name: 🧪 Get Choco AU
         run: |
           Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
+          Get-Command Get-AUPackages
 
         # attempts a force update on all packages and outputs the results
       - name: 🧪 Run Test_All.ps1

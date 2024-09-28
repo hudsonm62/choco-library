@@ -43,7 +43,6 @@ jobs:
         with:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
           shell: powershell, pwsh
-          updatable: true
 
       - name: 🧪 Get Choco AU
         run: |
