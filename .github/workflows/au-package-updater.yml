@@ -1,0 +1,109 @@
+name: Package Updater (AU)
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  schedule:
+    - cron: 0 4 * * * # 4am UTC | 2pm AEST
+
+concurrency:
+  group: au
+  cancel-in-progress: true
+
+jobs:
+  choco-au:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: ${{ env.MAIN_SHELL }}
+
+    env:
+      au_MODULE_NAME: Chocolatey-AU
+      MAIN_SHELL: powershell # pwsh
+
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+
+    steps:
+      - name: ⚙️ Build Info
+        run: |
+          Write-Output "PUSHED    : $('${{ github.event_name }}' -eq 'push')"
+          Write-Output "SCHEDULED : $('${{ github.event_name }}' -eq 'schedule')"
+          Write-Output "DISPATCH  : $('${{ github.event_name }}' -eq 'workflow_dispatch')"
+
+      - name: ⚙️ Run Info
+        run: |
+          Get-CimInstance Win32_OperatingSystem -Property Caption, OSArchitecture, Version | Format-List Caption, OSArchitecture, Version
+          $PSVersionTable
+          choco --v
+
+      - name: ⚙️ Get Short SHA
+        uses: hudsonm62/short-sha@v1
+        id: short-sha
+
+      - name: ⚙️ Setup PSGallery
+        run: |
+          Set-PSRepository -name PSGallery -InstallationPolicy Trusted
+
+      - name: 🏗️ Install / Cache ${{ env.au_MODULE_NAME }}
+        uses: potatoqualitee/psmodulecache@v6.2
+        with:
+          modules-to-cache: ${{ env.au_MODULE_NAME }}
+          shell: ${{ env.MAIN_SHELL }}
+
+      - name: 🧪 Test ${{ env.au_MODULE_NAME }} Installed
+        run: |
+          Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
+          Import-Module ${{ env.au_MODULE_NAME }} -Force
+
+      - name: 🌐 Login to Cloudsmith Feed
+        run: |
+          choco apikey add -s "${{ vars.PKG_URI }}" -k "${{ secrets.PKG_APIKEY }}"
+
+      - name: ⚙️ Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 📦 Update & Push All Packages
+        id: push
+        run: |
+          $ErrorActionPreference = 'Continue'
+          ./update_all.ps1 -SourceUri "${{ vars.PKG_URI }}" -PackNPush
+          Write-Output "GITHUB_STEP_SUMMARY=./Update-AUPackages.md" >> $Env:GITHUB_OUTPUT }
+
+      - name: ☄ Commit Updated
+        uses: stefanzweifel/git-auto-commit-action@v4
+        continue-on-error: true
+        with:
+          commit_message: "Choco-AU : Applied Automatic Package Updates"
+          file_pattern: "packages/**/*.nuspec packages/**/*.ps1"
+
+      ## Upload Any Artifacts ##
+      - name: ⬆ Upload Update Info
+        uses: actions/upload-artifact@v4
+        with:
+          name: AU-update-result-${{ steps.short-sha.outputs.sha }}
+          path: update_info.xml
+          compression-level: 9
+          if-no-files-found: ignore # may not exist
+
+      - name: ⬆ Upload Updates Status
+        uses: actions/upload-artifact@v4
+        with:
+          name: AU-update-result-${{ steps.short-sha.outputs.sha }}
+          path: Update-AUPackages.md
+          compression-level: 9
+          if-no-files-found: ignore # may not exist
+
+      - name: ⬆ Upload .nupkg's
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkg-artifacts-${{ steps.short-sha.outputs.sha }}
+          path: packages/**/*.nupkg
+          compression-level: 0
+          if-no-files-found: ignore # may not exist
+          retention-days: 90 # 3 months

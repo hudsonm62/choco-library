@@ -1,0 +1,50 @@
+name: Test CI
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 1 * * # At 12am on the 1st of every month
+
+defaults:
+  run:
+    shell: powershell
+
+env:
+  test_groups: 4
+  au_MODULE_NAME: Chocolatey-AU
+
+jobs:
+  au-tests:
+    runs-on: windows-latest
+    steps:
+      - name: ⚙️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Get Short SHA
+        uses: hudsonm62/short-sha@v1
+        id: short-sha
+
+      - name: 🏗️ Install / Cache Choco-AU Module
+        uses: potatoqualitee/psmodulecache@v6.2
+        with:
+          modules-to-cache: ${{ env.au_MODULE_NAME }}
+
+      - name: 🧪 Test ${{ env.au_MODULE_NAME }} Installed
+        run: |
+          Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
+          Import-Module ${{ env.au_MODULE_NAME }} -Force
+
+        # attempts a force update on all packages and outputs the results
+      - name: 🧪 Run Test_All.ps1
+        run: |
+          ./test_all.ps1 "random $Env:test_groups"
+          Write-Output "GITHUB_STEP_SUMMARY=./Update-Force-Test.md" >> $Env:GITHUB_OUTPUT }
+
+      - name: ⬆ Upload AU Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: AU-tests-result-${{ steps.short-sha.outputs.sha }}
+          path: Update-Force-Test.md
+          compression-level: 9
+          if-no-files-found: error

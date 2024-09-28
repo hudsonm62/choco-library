@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ntlite</id>
+    <version>2024.9.10073</version>
+    <title>NTLite</title>
+    <authors>Nlitesoft</authors>
+    <owners>hudsonm62</owners>
+    <licenseUrl>https://www.ntlite.com/shop</licenseUrl>
+    <projectUrl>https://www.ntlite.com/</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/hudsonm62/choco-library/icons/ntlite.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[![Screenshot](https://www.ntlite.com/wp-content/uploads/screen_components.png)
+
+## Welcome to NTLite
+
+### For Windows IT Professionals and Enthusiasts
+
+### Integrate and automate
+
+Integrate updates, drivers, automate Windows and application setup, speedup Windows deployment process and have it all set for the next time.
+
+### Reduce footprint
+
+Optionally remove Windows components, simplify your installation, reduce attack vectors and free up drive space.
+
+### In-place editing
+
+Next to editing images, you can also do the same actions on your existing Windows installation in-place, without reinstallation. _\*ISO creation only for existing images_
+
+### MAIN FEATURES
+
+- LIVE INSTALL MODIFICATIONS
+- UPDATE DOWNLOAD
+- UPDATE, DRIVER, LANGUAGE PACK AND APPLICATION INTEGRATION
+- HARDWARE TARGETING
+- TWEAKS
+- UNATTENDED SETUP
+- DISK PARTITIONING
+- APPLICATION INSTALLATION AUTOMATION
+- COMPONENT REMOVAL
+- PENDING CHANGES OVERVIEW
+- AND MORE
+
+More details at: https://www.ntlite.com/features/
+
+See license link for Free / Professional versions and pricing - They are directly compatible with this package, you just need to input your License Key once installed.
+
+### Package-specific issue
+
+If this package isn't up-to-date for some days, [Create an issue](https://github.com/hudsonm62/choco-library/issues/new/choose)
+]]></description>
+    <summary>Windows Deployment Tool</summary>
+    <releaseNotes>https://www.ntlite.com/changelog/</releaseNotes>
+    <copyright>© Nlitesoft</copyright>
+    <tags>nlitesoft ntlite windows deployment imaging dism</tags>
+    <packageSourceUrl>https://github.com/hudsonm62/choco-library/tree/master/automatic/ntlite</packageSourceUrl>
+    <docsUrl>https://www.ntlite.com/support/</docsUrl>
+    <mailingListUrl>https://www.ntlite.com/discussions/#/categories</mailingListUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
