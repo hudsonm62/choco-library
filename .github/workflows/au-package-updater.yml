@@ -34,19 +34,9 @@ jobs:
           Write-Output "SCHEDULED : $('${{ github.event_name }}' -eq 'schedule')"
           Write-Output "DISPATCH  : $('${{ github.event_name }}' -eq 'workflow_dispatch')"
 
-      - name: ⚙️ Run Info
-        run: |
-          Get-CimInstance Win32_OperatingSystem -Property Caption, OSArchitecture, Version | Format-List Caption, OSArchitecture, Version
-          $PSVersionTable
-          choco --v
-
       - name: ⚙️ Get Short SHA
         uses: hudsonm62/short-sha@v1
         id: short-sha
-
-      - name: ⚙️ Setup PSGallery
-        run: |
-          Set-PSRepository -name PSGallery -InstallationPolicy Trusted
 
       - name: 🏗️ Install / Cache ${{ env.au_MODULE_NAME }}
         uses: potatoqualitee/psmodulecache@v6.2
@@ -54,10 +44,9 @@ jobs:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
           shell: ${{ env.MAIN_SHELL }}
 
-      - name: 🧪 Test ${{ env.au_MODULE_NAME }} Installed
+      - name: 🧪 Get ${{ env.au_MODULE_NAME }}
         run: |
           Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
-          Import-Module ${{ env.au_MODULE_NAME }} -Force
 
       - name: 🌐 Login to Cloudsmith Feed
         run: |

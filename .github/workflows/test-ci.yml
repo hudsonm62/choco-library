@@ -30,10 +30,9 @@ jobs:
         with:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
 
-      - name: 🧪 Test ${{ env.au_MODULE_NAME }} Installed
+      - name: 🧪 Get ${{ env.au_MODULE_NAME }}
         run: |
           Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
-          Import-Module ${{ env.au_MODULE_NAME }} -Force
 
         # attempts a force update on all packages and outputs the results
       - name: 🧪 Run Test_All.ps1
