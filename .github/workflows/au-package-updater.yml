@@ -76,7 +76,7 @@ jobs:
           Write-Output "GITHUB_STEP_SUMMARY=./Update-AUPackages.md" >> $Env:GITHUB_OUTPUT }
 
       - name: ☄ Commit Updated
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         continue-on-error: true
         with:
           commit_message: "Choco-AU : Applied Automatic Package Updates"
