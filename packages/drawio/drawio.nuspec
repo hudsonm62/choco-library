@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>drawio</id>
-    <version>0.0.1</version>
+    <version>24.7.8</version>
     <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
     <owners>hudsonm62</owners>
     <title>draw.io</title>
