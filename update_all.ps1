@@ -13,6 +13,7 @@ $Options = [ordered]@{
     Threads       = 10                                      #Number of background jobs to use
     Push          = $false #$Env:au_Push -eq 'true'         #Push to chocolatey - disabled since im pushing to my own Cloudsmith instead
     PluginPath    = ''                                      #Path to user plugins
+    NoCheckChocoVersion = $true
 
     Report = @{
         Type = 'markdown'                                   #Report type: markdown or text
