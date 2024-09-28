@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>drawio</id>
+    <version>0.0.1</version>
+    <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
+    <owners>hudsonm62</owners>
+    <title>draw.io</title>
+    <authors>JGraph</authors>
+    <projectUrl>https://www.draw.io</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/hudsonm62/choco-library/icons/drawio.png</iconUrl>
+    <copyright>© 2005-2023 JGraph Ltd</copyright>
+    <licenseUrl>https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/jgraph/drawio-desktop</projectSourceUrl>
+    <docsUrl>https://www.drawio.com/doc/</docsUrl>
+    <bugTrackerUrl>https://github.com/jgraph/drawio-desktop/issues</bugTrackerUrl>
+    <tags>drawio draw.io diagramesnet diagrams.net msi</tags>
+    <summary>Desktop Version of popular diagrams.net diagramming software.</summary>
+    <description>drawio-desktop is a diagramming and whiteboarding desktop app based on Electron that wraps the core draw.io editor.</description>
+    <releaseNotes>https://github.com/jgraph/drawio-desktop/releases/tag/v24.7.8</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
