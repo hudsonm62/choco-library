@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>whocrashed</id>
+    <version>1.00</version>
+    <title>WhoCrashed</title>
+    <authors>Resplendence Software Projects Sp.</authors>
+    <owners>hudsonm62</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://www.resplendence.com/licensing</licenseUrl>
+    <projectUrl>https://www.resplendence.com/whocrashed</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/hudsonm62/choco-library/master/icons/whocrashed.png</iconUrl>
+    <description>
+      Analyzes existing crash dumps and tries to determine and state the root cause in easy to understand language.
+
+      Note: The Free edition is only available for home use. Business users must purchase a professional license.
+    </description>
+    <summary>Comprehensible crash dump analysis, find out why your system crashed.</summary>
+    <releaseNotes>https://www.resplendence.com/whocrashed_pro.htm</releaseNotes>
+    <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
+    <copyright>© 1997-2024 Resplendence Software Projects</copyright>
+    <bugTrackerUrl>https://www.resplendence.com/support</bugTrackerUrl>
+    <tags>crash dump debug tools resplendence</tags>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
