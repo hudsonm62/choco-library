@@ -6,7 +6,7 @@ if (Test-Path $PSScriptRoot/update_vars.ps1) { . $PSScriptRoot/update_vars.ps1 }
 $global:au_root = Resolve-Path $Root -ErrorAction Stop
 
 if (($Name.Length -gt 0) -and ($Name[0] -match '^random (.+)')) {
-    [array] $lsau = lsau
+    [array] $lsau = Get-AUPackages
 
     $group = [int]$Matches[1]
     $n = (Get-Random -Maximum $group)

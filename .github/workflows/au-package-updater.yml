@@ -38,15 +38,17 @@ jobs:
         uses: hudsonm62/short-sha@v1
         id: short-sha
 
-      - name: 🏗️ Install / Cache ${{ env.au_MODULE_NAME }}
+      - name: 🏗️ Install / Cache Choco AU
         uses: potatoqualitee/psmodulecache@v6.2
         with:
           modules-to-cache: ${{ env.au_MODULE_NAME }}
-          shell: ${{ env.MAIN_SHELL }}
+          shell: powershell, pwsh
+          updatable: true
 
-      - name: 🧪 Get ${{ env.au_MODULE_NAME }}
+      - name: 🧪 Get Choco AU
         run: |
           Get-Module -Name ${{ env.au_MODULE_NAME }} -ListAvailable | Select Path
+          Get-Command Get-AUPackages
 
       - name: 🌐 Login to Cloudsmith Feed
         run: |
@@ -83,7 +85,7 @@ jobs:
       - name: ⬆ Upload Updates Status
         uses: actions/upload-artifact@v4
         with:
-          name: AU-update-result-${{ steps.short-sha.outputs.sha }}
+          name: AU-update-result-page-${{ steps.short-sha.outputs.sha }}
           path: Update-AUPackages.md
           compression-level: 9
           if-no-files-found: ignore # may not exist
