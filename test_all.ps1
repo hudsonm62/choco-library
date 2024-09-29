@@ -13,23 +13,23 @@ if (($Name.Length -gt 0) -and ($Name[0] -match '^random (.+)')) {
     Write-Output "TESTING GROUP $($n+1) of $group"
 
     $group_size = [int]($lsau.Count / $group) + 1
-    $Name = $lsau | Select-Object -First $group_size -Skip ($group_size*$n) | ForEach-Object { $_.Name }
+    $Name = $lsau | Select-Object -First $group_size -Skip ($group_size * $n) | ForEach-Object { $_.Name }
 
     Write-Output ($Name -join ' ')
-    Write-Output ('-'*80)
+    Write-Output ('-' * 80)
 }
 
 $options = [ordered]@{
-    Force = $true
-    Push = $false
+    Force  = $true
+    Push   = $false
 
     Report = @{
-        Type = 'markdown'                                   #Report type: markdown or text
-        Path = "$PSScriptRoot\Update-Force-Test.md"      #Path where to save the report
-        Params= @{                                          #Report parameters:
+        Type   = 'markdown'                                   #Report type: markdown or text
+        Path   = "$PSScriptRoot\Update-Force-Test.md"      #Path where to save the report
+        Params = @{                                          #Report parameters:
             Github_UserRepo = $Env:github_user_repo         #  Markdown: shows user info in upper right corner
-            NoAppVeyor  = $true                            #  Markdown: do not show AppVeyor build shield
-            Title       = "Update Force Test - Group ${n}"
+            NoAppVeyor      = $true                            #  Markdown: do not show AppVeyor build shield
+            Title           = "Update Force Test - Group ${n}"
             #UserMessage = "[Update report](https://gist.github.com/$Env:gist_id) | **USING AU NEXT VERSION**"       #  Markdown, Text: Custom user message to show
         }
     }

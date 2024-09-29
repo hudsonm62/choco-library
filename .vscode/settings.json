@@ -2,5 +2,8 @@
   "files.eol": "\r\n",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "git.enableCommitSigning": true
+  "git.enableCommitSigning": true,
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  }
 }
