@@ -44,3 +44,14 @@ $options = [ordered]@{
 
 
 $global:info = updateall -Name $Name -Options $Options
+
+# Upload step summary
+if ($env:CI) {
+    $env:GITHUB_STEP_SUMMARY = $(Get-Content "./Update-Force-Test.md" -Raw)
+}
+
+$errorItems = $global:info | Where-Object { $_.Error -and $_.Error.Length -gt 0 }
+$errorCount = $errorItems.Count
+if ($errorCount -gt 0) {
+    throw "There was $errorCount error(s)!"
+}

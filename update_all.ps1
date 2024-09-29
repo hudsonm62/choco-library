@@ -63,6 +63,12 @@ $Options = [ordered]@{
 if ($ForcedPackages) { Write-Output "FORCED PACKAGES: $ForcedPackages" }
 $global:au_Root = $Root                                    #Path to the AU packages
 $global:info = updateall -Name $Name -Options $Options
+
+# Upload step summary
+if ($env:CI) {
+    $env:GITHUB_STEP_SUMMARY = $(Get-Content "./Update-AUPackages.md" -Raw)
+}
+
 if ($PackNPush -eq $true) {
     foreach ($package in $global:info) {
         $PkgName = $package.Name
