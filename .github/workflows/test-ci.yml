@@ -11,7 +11,7 @@ defaults:
     shell: powershell
 
 env:
-  test_groups: 4
+  test_groups: 1
   au_MODULE_NAME: Chocolatey-AU
 
 jobs:
