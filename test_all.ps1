@@ -19,11 +19,13 @@ if (($Name.Length -gt 0) -and ($Name[0] -match '^random (.+)')) {
     Write-Output ('-' * 80)
 }
 
-$options = [ordered]@{
-    Force  = $true
-    Push   = $false
-
-    Report = @{
+$Options = [ordered]@{
+    Force         = $true
+    Push          = $false
+    Timeout       = 600                                     #Connection timeout in seconds
+    UpdateTimeout = 1200
+    
+    Report        = @{
         Type   = 'markdown'                                   #Report type: markdown or text
         Path   = "$PSScriptRoot\Update-Force-Test.md"      #Path where to save the report
         Params = @{                                          #Report parameters:
