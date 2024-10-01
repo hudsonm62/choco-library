@@ -15,17 +15,14 @@ $url = "https://www.resplendence.com/whocrashed"
 $dlUrl = "https://www.resplendence.com/download/whocrashedSetup.exe"
 function global:au_GetLatest {
 	$page = Invoke-RestMethod $url -Method Get -UseBasicParsing
-	$checksum = Get-RemoteChecksum -Url $dlUrl
 	$regexPattern = 'Latest version: v(\d+(\.\d+)*)'
 	$versionMatch = $page | Select-String -Pattern $regexPattern -AllMatches
 	$version = $versionMatch.Matches[0].Groups[1].Value
 
 	$Latest = @{ 
-		Version    = $version
-		URL32      = $dlUrl
-		Checksum32 = $checksum
-		URL64      = $dlUrl
-		Checksum64 = $checksum
+		Version = $version
+		URL32   = $dlUrl
+		URL64   = $dlUrl
 	}
 	return $Latest
 }

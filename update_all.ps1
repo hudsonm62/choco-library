@@ -70,6 +70,7 @@ if ($env:CI) {
 }
 
 if ($PackNPush -eq $true) {
+    $updatedPkgsCount = 0
     foreach ($package in $global:info) {
         $PkgName = $package.Name
         $package_dir = $package.Path
@@ -92,6 +93,7 @@ if ($PackNPush -eq $true) {
             else {
                 Write-Output "Pushing to '$SourceUri'"
                 choco push --source $SourceUri # set apikey with 'choco apikey set'
+                $updatedPkgsCount += 1
             }
         }
         catch {
@@ -102,5 +104,5 @@ if ($PackNPush -eq $true) {
         }
 
     }
-    Write-Output "::notice file=Update-History.md::$($global:info.Count) Packages updated and pushed"
+    Write-Output "::notice file=Update-History.md::$($global:info.Count) scanned, $updatedPkgsCount updated and/or pushed."
 }
