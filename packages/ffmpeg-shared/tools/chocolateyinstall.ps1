@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsPath = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url = 'https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z'
-$checksum = 'a0b6e8c7978b95d019a93dcf4b4ab74b17d9e53e0a87cfd463e1376c5927e30b'
+$checksum = '01915dfe8591248be20d3d83453c91c1f71cfd10c07460e6fa2d2e667f513606'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
