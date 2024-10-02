@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>windirstat-next</id>
-    <version>0.0.1</version>
+    <version>2.0.0.20240919</version>
     <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
     <owners>hudsonm62</owners>
     <title>WinDirStat Next</title>
@@ -21,7 +21,7 @@
     <tags>windirstat disk usage admin tool</tags>
     <summary>WinDirStat Next - Brewing a future version</summary>
     <description>WinDirStat is a program that allows you to find drive space hogs at a glance. It achieves that by displaying a drive, drives or directories in a treemap that assigns bigger areas to bigger files and directories. Making those areas visually separate by coloring and other means allows you to see literally at a glance what the space hogs are and where to dig deeper.</description>
-    <releaseNotes>sd</releaseNotes>
+    <releaseNotes>https://github.com/windirstat/windirstat-next/releases/tag/Release_2_0_0_2024_09_19</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
