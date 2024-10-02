@@ -17,9 +17,6 @@ function global:au_SearchReplace {
 function global:au_GetLatest {
   $Repository = "audacity/audacity"
   $apiUrl = "https://api.github.com/repos/$Repository/releases/latest"
-  if ($TagName) {
-    $apiUrl = "https://api.github.com/repos/$Repository/releases/tags/$TagName"
-  }
   $headers = @{
     Accept                 = "application/vnd.github+json"
     "X-GitHub-Api-Version" = "2022-11-28"
