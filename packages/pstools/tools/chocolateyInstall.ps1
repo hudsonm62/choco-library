@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url = 'https://download.sysinternals.com/files/PSTools.zip'
 $checksum = 'a9ca77dfe03ce15004157727bb43ba66f00ceb215362c9b3d199f000edaa8d61'
