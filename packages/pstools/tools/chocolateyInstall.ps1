@@ -17,6 +17,20 @@ Install-ChocolateyZipPackage @packageArgs
 
 if ($true -eq (Get-PackageParameters)['acceptEula']) {
   $regRoot = "HKCU:\Software\Sysinternals"
+  $regPkg = @(
+    'PsExec',
+    'PsFile',
+    'PsGetSid',
+    'PsInfo',
+    'PsKill',
+    'PsList',
+    'PsLoggedOn',
+    'PsLogList',
+    'PsPasswd',
+    'PsService',
+    'PsShutdown',
+    'PsSuspend'
+  )
   if (!(Test-Path $regRoot)) {
     New-Item -Path "$regRoot" | Out-Null
   }
