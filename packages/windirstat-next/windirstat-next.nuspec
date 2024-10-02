@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>windirstat-next</id>
+    <version>0.0.1</version>
+    <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
+    <owners>hudsonm62</owners>
+    <title>WinDirStat Next</title>
+    <authors>WinDirStat Team</authors>
+    <copyright>
+      Copyright © 2003-2005 Bernhard Seifert (bseifert@users.sourceforge.net)
+      Copyright © 2004-2024 WinDirStat Team (windirstat.net)
+    </copyright>
+    <projectUrl>https://windirstat.net/</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/hudsonm62/choco-library@master/icons/windirstat-next.png</iconUrl>
+    <licenseUrl>https://github.com/windirstat/windirstat-next/blob/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/windirstat/windirstat-next/</projectSourceUrl>
+    <docsUrl>https://windirstat.net</docsUrl>
+    <bugTrackerUrl>https://github.com/windirstat/windirstat-next/issues</bugTrackerUrl>
+    <tags>windirstat disk usage admin tool</tags>
+    <summary>WinDirStat Next - Brewing a future version</summary>
+    <description>WinDirStat is a program that allows you to find drive space hogs at a glance. It achieves that by displaying a drive, drives or directories in a treemap that assigns bigger areas to bigger files and directories. Making those areas visually separate by coloring and other means allows you to see literally at a glance what the space hogs are and where to dig deeper.</description>
+    <releaseNotes>sd</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
