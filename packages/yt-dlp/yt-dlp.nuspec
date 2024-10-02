@@ -8,7 +8,7 @@
     <owners>hudsonm62</owners>
     <title>YT-DLP</title>
     <authors>https://github.com/yt-dlp/yt-dlp/blob/master/CONTRIBUTORS</authors>
-    <projectUrl>https://www.jetbrains.com/lp/mono/</projectUrl>
+    <projectUrl>https://github.com/yt-dlp/yt-dlp</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/hudsonm62/choco-library/icons/yt-dlp.png</iconUrl>
     <copyright>2021 YT-DLP Project</copyright>
     <licenseUrl>https://github.com/yt-dlp/yt-dlp/blob/master/LICENSE</licenseUrl>
