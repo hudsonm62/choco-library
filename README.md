@@ -1,6 +1,6 @@
 # Chocolatey Packages Library
 
-[![Actions Tests](https://img.shields.io/github/actions/workflow/status/hudsonm62/choco-library/test-ci.yml?branch=master&logo=githubactions&style=for-the-badge&label=tests)](https://github.com/hudsonm62/choco-library/actions/workflows/test-ci.yml) [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com) [![Report Broken Packages](https://img.shields.io/badge/broken%20packages-red?style=for-the-badge&logo=github&label=report&link=https%3A%2F%2Fgithub.com%2Fhudsonm62%2Fchoco-library%2Fissues%2Fnew%2Fchoose)](https://github.com/hudsonm62/choco-library/issues/new/choose)
+[![Actions AU](https://img.shields.io/github/actions/workflow/status/hudsonm62/choco-library/au-package-updater.yml?branch=master&logo=githubactions&style=for-the-badge&label=au)](https://github.com/hudsonm62/choco-library/actions/workflows/au-package-updater.yml) [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com) [![Report Broken Packages](https://img.shields.io/badge/broken%20packages-red?style=for-the-badge&logo=github&label=report&link=https%3A%2F%2Fgithub.com%2Fhudsonm62%2Fchoco-library%2Fissues%2Fnew%2Fchoose)](https://github.com/hudsonm62/choco-library/issues/new/choose)
 
 ## hudsonm62/choco-library
 
