@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>goto-opener</id>
+    <version>0.0.1</version>
+    <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
+    <owners>hudsonm62</owners>
+    <title>GoTo Opener (MultiUser)</title>
+    <authors>LogMeIn, Inc.</authors>
+    <projectUrl>https://support.goto.com/meeting/help/what-is-the-multi-user-launcher-opener-msi</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/hudsonm62/choco-library@master/icons/goto-opener.png</iconUrl>
+    <!-- <copyright>Year Software Vendor</copyright> -->
+    <licenseUrl>https://www.logmeininc.com/legal/terms-and-conditions</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://support.goto.com/meeting/help/what-is-the-multi-user-launcher-opener-msi</docsUrl>
+    <tags>goto-opener goto meeting conference</tags>
+    <summary>GoTo Opener Multi-User installation - helper for GoToMeeting</summary>
+    <description>
+      GoTo Meeting uses a "helper" application to launch you into active sessions. This application is known as the GoTo Opener app. When you install the GoTo Meeting software, this app is automatically installed on your computer as well. It will also run each time you join or start a session in order to connect you to your GoTo service.
+    </description>
+    <releaseNotes>
+      LogMeIn, Inc. usually posts release notes for all products in [their community discussion board](https://community.logmein.com/t5/GoToMeeting-News/bg-p/GoToMeeting-Release-Notes/label-name/release%20notes). Unfortunately there are no release notes for the current version (b562) - only for the [previous version (b530)](https://community.logmein.com/t5/GoToMeeting-News/GoTo-Opener-App-b530-Release-Notes/ba-p/210767).
+    </releaseNotes>
+    <dependencies>
+      <dependency id="goto-app" version="4.11.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**\*.ps1" target="tools" />
+  </files>
+</package>

@@ -69,7 +69,7 @@ jobs:
         continue-on-error: true
         with:
           commit_message: "Choco-AU : Applied Automatic Package Updates"
-          file_pattern: "packages/**/*.nuspec packages/**/*.ps1"
+          file_pattern: "packages/**/*.nuspec packages/**/*.ps1 packages/**/*.json"
 
       ## Upload Any Artifacts ##
       - name: ⬆ Upload Update Info
