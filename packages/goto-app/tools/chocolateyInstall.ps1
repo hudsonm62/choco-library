@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $url = 'https://goto-desktop.goto.com/GoToSetupMachine-4.11.0-ia32.msi'
 $checksum32 = 'ddc9e68f4cab5b74c066270f80a64993b2ab2f1c7412d9941e0c8fd156bb97b2'
 $url64 = 'https://goto-desktop.goto.com/GoToSetupMachine-4.11.0-x64.msi'
