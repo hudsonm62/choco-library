@@ -2,7 +2,7 @@
 $packageName = 'whocrashed'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url = 'https://www.resplendence.com/download/whocrashedSetup.exe'
-$checksum = '8f9f79abdb3195bd22b58cde459e45139d320677579966c202ca371d87a0a4ad'
+$checksum = '057050931eebb9fba355bafb55e1b3ab7fe39e2975fa446371d118eb594f679f'
 $checksumType = 'sha256'
 
 $packageArgs = @{
