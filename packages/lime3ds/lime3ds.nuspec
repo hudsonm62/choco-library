@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>lime3ds</id>
-    <version>2118.2</version>
+    <version>2119.1</version>
     <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
     <owners>hudsonm62</owners>
     <title>Lime3DS</title>
@@ -17,7 +17,7 @@
     <bugTrackerUrl>https://github.com/Lime3DS/Lime3DS/issues</bugTrackerUrl>
     <tags>lime3ds gaming emulator 3ds </tags>
     <description>Lime3DS is a project which aims to revive and continue work on Citra, a popular open-source Nintendo 3DS emulator which ceased development</description>
-    <releaseNotes>https://github.com/Lime3DS/Lime3DS/releases/tag/2118.2</releaseNotes>
+    <releaseNotes>https://github.com/Lime3DS/Lime3DS/releases/tag/2119.1</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**\*.ps1" target="tools" />
