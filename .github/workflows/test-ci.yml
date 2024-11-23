@@ -43,6 +43,7 @@ jobs:
 
       - name: ⬆ Upload AU Test Results
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: AU-tests-result-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: Update-Force-Test.md
@@ -51,6 +52,7 @@ jobs:
 
       - name: ⬆ Upload .nupkg's
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: nupkg-artifacts-${{ steps.short-sha.outputs.sha }}-${{ github.run_number }}
           path: packages/**/*.nupkg
