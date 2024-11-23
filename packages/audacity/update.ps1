@@ -3,10 +3,12 @@ Import-Module Chocolatey-AU
 function global:au_SearchReplace {
   @{
     'tools/chocolateyInstall.ps1' = @{
-      "(^[$]url(32)?\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
-      "(^[$]checksum(32)?\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
-      "(^[$]url64?\s*=\s*)('.*')"        = "`$1'$($Latest.URL64)'"
-      "(^[$]checksum64?\s*=\s*)('.*')"   = "`$1'$($Latest.Checksum64)'"
+      "(?i)(^\s*url\s*=\s*)('.*')"            = "`$1'$($Latest.URL32)'"
+      "(?i)(^\s*checksum\s*=\s*)('.*')"       = "`$1'$($Latest.Checksum32)'"
+      "(?i)(^\s*checksumType\s*=\s*)('.*')"   = "`$1'$($Latest.ChecksumType32)'"
+      "(?i)(^\s*url64bit\s*=\s*)('.*')"       = "`$1'$($Latest.URL64)'"
+      "(?i)(^\s*checksum64\s*=\s*)('.*')"     = "`$1'$($Latest.Checksum64)'"
+      "(?i)(^\s*checksumType64\s*=\s*)('.*')" = "`$1'$($Latest.ChecksumType64)'"
     }
     "audacity.nuspec"             = @{
       "(\<releaseNotes\>).*?(\<\/releaseNotes\>)" = "`$1$($Latest.ReleaseNotes)`$2"
@@ -15,8 +17,6 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-  $Repository = "audacity/audacity"
-  $apiUrl = "https://api.github.com/repos/$Repository/releases/latest"
   $headers = @{
     Accept                 = "application/vnd.github+json"
     "X-GitHub-Api-Version" = "2022-11-28"
@@ -25,19 +25,16 @@ function global:au_GetLatest {
     $headers.Add("Authorization", "Bearer $($Token)")
   }
 
-  $latestRelease = Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Get -UseBasicParsing
+  $url = "https://api.github.com/repos/audacity/audacity/releases/latest"
+  $latestRelease = Invoke-RestMethod -Uri $url -Headers $headers -Method Get
+  $versionMatch = $latestRelease.name | Select-String -Pattern '(\d+(\.\d+)*)' -AllMatches
+  $latestVersion = $versionMatch.Matches[0].Groups[1].Value
 
-  $versionMatch = $latestRelease.name | Select-String -Pattern 'Audacity (\d+(\.\d+)*)' -AllMatches
-  $version = $versionMatch.Matches[0].Groups[1].Value
-
-  $x64 = $latestRelease.assets | Where-Object { $_.name.EndsWith("64bit.exe") }
-  $x32 = $latestRelease.assets | Where-Object { $_.name.EndsWith("32bit.exe") }
-
-  return @{ 
-    URL32        = $x32.browser_download_url
-    URL64        = $x64.browser_download_url
+  return @{
+    URL32        = ($latestRelease.assets | Where-Object { $_.name.EndsWith("32bit.exe") }).browser_download_url
+    URL64        = ($latestRelease.assets | Where-Object { $_.name.EndsWith("64bit.exe") }).browser_download_url
     ReleaseNotes = $latestRelease.html_url
-    Version      = $version
+    Version      = $latestVersion
   }
 }
 
