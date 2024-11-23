@@ -1,7 +1,7 @@
 # Based on AU Packages Template: https://github.com/majkinetor/au-packages-template
 
 param(
-    [string] $Name, [string] $ForcedPackages, [string] $Root = "$PSScriptRoot\packages", 
+    [string] $Name, [string] $ForcedPackages, [string] $Root = "$PSScriptRoot\packages",
     [uri]$SourceUri, [switch]$PackNPush = $false
 )
 
@@ -89,17 +89,14 @@ if ($PackNPush -eq $true) {
             choco pack
             if ($null -eq $SourceUri) {
                 Write-Warning "SourceUri variable is null - Skipping 'choco push'.."
-            }
-            else {
+            } else {
                 Write-Output "Pushing to '$SourceUri'"
                 choco push --source $SourceUri # set apikey with 'choco apikey set'
                 $updatedPkgsCount += 1
             }
-        }
-        catch {
+        } catch {
             Write-Output "::error title=$PkgName Packaging Error::$_"
-        }
-        finally {
+        } finally {
             Pop-Location 
         }
 

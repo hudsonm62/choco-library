@@ -41,6 +41,15 @@ jobs:
         run: |
           ./test_all.ps1 "random $Env:test_groups"
 
+      - name: Run PSScriptAnalyzer
+        if: always()
+        uses: microsoft/psscriptanalyzer-action@v1.1
+        with:
+          path: .\packages
+          recurse: true
+          enableExit: true
+          output: results.sarif
+
       - name: ⬆ Upload AU Test Results
         uses: actions/upload-artifact@v4
         if: always()
@@ -59,3 +68,9 @@ jobs:
           compression-level: 9
           retention-days: 2
           if-no-files-found: error
+
+      - name: ⬆ Upload SARIF file
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
