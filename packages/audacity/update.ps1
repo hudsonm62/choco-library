@@ -33,13 +33,12 @@ function global:au_GetLatest {
   $x64 = $latestRelease.assets | Where-Object { $_.name.EndsWith("64bit.exe") }
   $x32 = $latestRelease.assets | Where-Object { $_.name.EndsWith("32bit.exe") }
 
-  $Latest = @{ 
+  return = @{ 
     URL32        = $x32.browser_download_url
     URL64        = $x64.browser_download_url
     ReleaseNotes = $latestRelease.html_url
     Version      = $version
   }
-  return $Latest
 }
 
 update -ChecksumFor all
