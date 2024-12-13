@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>audacity</id>
-    <version>3.7.0</version>
+    <version>3.7.1</version>
     <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
     <owners>hudsonm62</owners>
     <title>Audacity</title>
@@ -18,7 +18,7 @@
     <description>
       Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems. Audacity is free, open source software. 
     </description>
-    <releaseNotes>https://github.com/audacity/audacity/releases/tag/Audacity-3.7.0</releaseNotes>
+    <releaseNotes>https://github.com/audacity/audacity/releases/tag/Audacity-3.7.1</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
