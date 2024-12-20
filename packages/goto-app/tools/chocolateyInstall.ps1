@@ -1,8 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url = 'https://goto-desktop.goto.com/GoToSetupMachine-4.12.0-ia32.msi'
-$checksum32 = '58ece3d5aaf11aadfb5cbdb06eaf0966a73af3cfb19711c5844ed89aa6f78887'
-$url64 = 'https://goto-desktop.goto.com/GoToSetupMachine-4.12.0-x64.msi'
-$checksum64 = '6d6be4e573341f72af1430930f62def7644b116b28d96734ebac9e3d2688e0b1'
+$url = 'https://goto-desktop.goto.com/GoToSetupMachine-4.12.1-ia32.msi'
+$checksum32 = 'bfd528208f8e5ade9b96493394059d583cf5f705085fe94f87860d2ea52d5f14'
+$url64 = 'https://goto-desktop.goto.com/GoToSetupMachine-4.12.1-x64.msi'
+$checksum64 = '5ffe627ac1b3d75e235a0b012e13aa2923d8d7c06affd55fd9b4854259cd1f65'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
