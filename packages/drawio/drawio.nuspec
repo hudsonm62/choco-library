@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>drawio</id>
-    <version>25.0.2</version>
+    <version>26.0.3</version>
     <packageSourceUrl>https://github.com/hudsonm62/choco-library</packageSourceUrl>
     <owners>hudsonm62</owners>
     <title>draw.io</title>
@@ -19,7 +19,7 @@
     <tags>drawio draw.io diagramesnet diagrams.net msi</tags>
     <summary>Desktop Version of popular diagrams.net diagramming software.</summary>
     <description>drawio-desktop is a diagramming and whiteboarding desktop app based on Electron that wraps the core draw.io editor.</description>
-    <releaseNotes>https://github.com/jgraph/drawio-desktop/releases/tag/v25.0.2</releaseNotes>
+    <releaseNotes>https://github.com/jgraph/drawio-desktop/releases/tag/v26.0.3</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
