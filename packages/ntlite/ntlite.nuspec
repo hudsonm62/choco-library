@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ntlite</id>
-    <version>2025.01.10271</version>
+    <version>2025.01.10275</version>
     <title>NTLite</title>
     <authors>Nlitesoft</authors>
     <owners>hudsonm62</owners>
