@@ -1,9 +1,9 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url = 'https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.26/yt-dlp_x86.exe'
-$checksum32 = 'ebbfae07713a91c87b5e0b08417ba40b0a7279af16181a4163c4921f27b070fb'
+$url = 'https://github.com/yt-dlp/yt-dlp/releases/download/2025.02.19/yt-dlp_x86.exe'
+$checksum32 = 'ae60d40be1c15a8c0f015ddb87b263f5508a616ca99114d6949f643b0746ee8e'
 $checksumType32 = 'sha256'
-$url64 = 'https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.26/yt-dlp.exe'
-$checksum64 = '423eec9b60ab7910d97eb74cdb5daea90128850752d4aad6ccabaf8648d6387c'
+$url64 = 'https://github.com/yt-dlp/yt-dlp/releases/download/2025.02.19/yt-dlp.exe'
+$checksum64 = 'b9fac42a19e118e1b0a5c98832928a1c25782d805a9905476bb55d479212621a'
 $checksumType64 = 'sha256'
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
